@@ -9,7 +9,7 @@
         state: latest
     - name: Enviar fichero de configuración
       copy:
-        src: /root/practicaclase/haproxy.cfg
+        src: /root/playbooks/haproxy.cfg
         dest: /etc/haproxy/haproxy.cfg
     - name: Comprobar que el servicio esta levantado
       service:
