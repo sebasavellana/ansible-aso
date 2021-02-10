@@ -1,0 +1,18 @@
+---
+- name: Instalación y configuración de HAProxy
+  hosts: loadbalancers
+  remote_user: root
+  tasks:
+    - name: Instalación de HAProxy
+      apt:
+        name: haproxy
+        state: latest
+    - name: Enviar fichero de configuración
+      copy:
+        src: /root/practicaclase/haproxy.cfg
+        dest: /etc/haproxy/haproxy.cfg
+    - name: Comprobar que el servicio esta levantado
+      service:
+        name: haproxy
+        state: started
+...
